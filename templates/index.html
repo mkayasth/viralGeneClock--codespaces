@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: whitesmoke;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            margin: 10;
+        }
+        h1 {
+            color: black;
+            margin: 0;
+        }
+        form {
+            background-color: white;
+            padding: 50px;
+            border-radius: 5px;
+            box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+            max-width: 700px;
+            margin: auto;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        textarea, input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 6px;
+            border: 1px solid;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: green;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+        }
+        input[type="submit"]:hover {
+            background-color: darkgreen;
+        }
+        nav {
+            background-color: black;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 8px 20px;
+            text-decoration: none;
+        }
+        nav a:hover, nav a.logo:hover {
+            background-color: darkgreen;
+            color: black;
+        }
+        nav a.logo {
+            padding: 0;
+        }
+        nav img {
+            display: block;
+            height: 25px;
+            padding: 4px 20px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        .header img {
+            height: 40px;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo"><img src="{{ url_for('static', filename='logo.png') }}"></a>
+        <a href="/about">About</a>
+        <a href="/references">References</a>
+        
+    </nav>
+    
+    <div class="header">
+        <img src="{{ url_for('static', filename='logo.png') }}">
+        <h1>ViralGeneClock</h1>
+    </div>
+   
+    <form method="post" action="/run" id="myForm">
+        <label for="fasta_sequence">FASTA Sequence:</label>
+        <textarea id="fasta_sequence" name="fasta_sequence" rows="15" cols="80" placeholder="Enter FASTA sequences of the strains here..." required></textarea>
+        
+        <label for="reference_genome">Reference Genome:</label>
+        <input type="text" id="reference_genome" name="reference_genome" placeholder="Enter reference genome ID from the FASTA header" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+        
+        <input type="submit" value="Run">
+    </form>
+
+    <script>
+        document.getElementById('myForm').onsubmit = function() {
+            var email = document.getElementById('email').value;
+            var fasta = document.getElementById('fasta_sequence').value;
+            if (!email.includes('@') || fasta.trim() === '') {
+                alert('Please enter a valid email and FASTA sequence.');
+                return false;
+            }
+            return true;
+        };
+    </script>
+</body>
+</html>
+

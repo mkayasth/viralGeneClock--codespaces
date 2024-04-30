@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Command Running</title>
+	<!-- Using ajax to capture real time updates from command line and displaying on Web App screen. -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .status {
+            margin: 20px;
+            border-radius: 5px;
+            padding-bottom: 20px;
+            
+        }
+        .output {
+            background-color: lightgray;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            var task_id = "{{ task_id }}"; // task id from flask rendering.
+            function updateStatus() {
+                $.getJSON('/status/' + task_id, function(data) {
+                    if (data.status === 'failed' || data.output.toLowerCase().includes('filenotfounderror')) {  // file not found error is raised when input FASTA or reference genome is wrong.
+                        $('#status').text('Failed to process your request. Error with the FASTA sequence / reference genome not found in any FASTA header.').addClass('status');
+                        $('#output').text(data.output).addClass('output');
+                    } else if (data.status === 'emailed') {
+                        $('#status').html('Your request has been processed successfully! <strong>outputs.zip</strong> has been emailed.').addClass('status');
+                        $('#output').html('<strong>Output files:</strong><ul><li>FOLDER fullSequence-output: gene annotation from Prokka, Full sequence MSA, Genetic distance matrix between the strains, Phylogenetic tree.</li><li>FOLDER geneAnalysis-output: MSA across the viral strains for each gene.</li><li>FOLDER avg_mutation_rate_final: relative mutation rate for each gene across the viral strains.</li></ul>').addClass('output');
+                        clearInterval(statusInterval);
+                    } else {
+                        $('#status').text('Task Status: ' + data.status.charAt(0).toUpperCase() + data.status.slice(1)).addClass('status');
+                        $('#output').text(data.output).addClass('output');
+                    }
+                });
+            }
+            var statusInterval = setInterval(updateStatus, 10000); // every 10 seconds for updates..
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+    <br>
+        <h3><span id="status">Task Status: Running...</span></h3>
+        <pre id="output" style="white-space: pre-wrap;"></pre>
+    </div>
+</body>
+</html>
+

@@ -21,7 +21,7 @@ reference_strain = sys.argv[2]
 folder_path = 'geneAnalysis-output'
 
 # run prokkaMuscle.py once, providing the full genome file path as an argument.
-subprocess.run(['python3.11', 'geneAnalysis/prokkaMuscle.py', full_genome_path], check=True)
+subprocess.run(['python3', 'geneAnalysis/prokkaMuscle.py', full_genome_path], check=True)
 
 # list of all .ffn files in the folder using global library.
 ffn_files = glob.glob(f'{folder_path}/*.ffn')
@@ -32,11 +32,11 @@ if os.path.exists('avg_mutation_rate_final') and os.path.isdir('avg_mutation_rat
 
 for ffn_file in ffn_files:
     # running neighbor_joining.py for each .ffn file, passing the file as an argument.
-    subprocess.run(['python3.11', 'geneAnalysis/neighborJoining/main_NJ.py', ffn_file], check=True)
+    subprocess.run(['python3', 'geneAnalysis/neighborJoining/main_NJ.py', ffn_file], check=True)
     print(f"Neighbor joining algorithm completed for", ffn_file + "." )
     
     # running geneAnalysis.py for each .ffn file, passing the file and reference strain as arguments.
-    subprocess.run(['python3.11', 'geneAnalysis/geneAnalysis.py', reference_strain], check=True)
+    subprocess.run(['python3', 'geneAnalysis/geneAnalysis.py', reference_strain], check=True)
     print("geneAnalysis algorithm completed for", ffn_file + ".")
 
 

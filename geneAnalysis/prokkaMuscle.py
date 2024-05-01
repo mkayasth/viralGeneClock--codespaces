@@ -32,7 +32,7 @@ def remove_whitespace(input_file, output_file):
         for sequence in sequences:
             f.write(sequence + '\n')
 
-def remove_whitespace_and_run_muscle(input_file, muscle_executable='muscle'):
+def remove_whitespace_and_run_muscle(input_file, muscle_executable='./muscle3.8.31_i86linux32'):
     # runs remove_whitespace before and after running MUSCLE.
     
     cleaned_file_pre = f"{input_file}_pre_cleaned.ffn"
@@ -52,7 +52,7 @@ def remove_whitespace_and_run_muscle(input_file, muscle_executable='muscle'):
     os.remove(cleaned_file_pre)
     os.remove(muscle_output_file)
 
-def annotate_and_group_genes(input_fasta, muscle_executable='muscle'):
+def annotate_and_group_genes(input_fasta, muscle_executable='./muscle3.8.31_i86linux32'):
 # Prokka annotates viral genes. This function groups each gene across the strains together in a .ffn file in geneAnalysis-output.
 
     output_dir = "geneAnalysis-output"
@@ -117,7 +117,7 @@ def annotate_and_group_genes(input_fasta, muscle_executable='muscle'):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Annotate genomes, group genes, and multiple alignment of sequences.")
     parser.add_argument("input_fasta", help="The input FASTA file containing genome sequences.")
-    parser.add_argument("--muscle", help="Path to the Muscle executable", default="muscle")
+    parser.add_argument("--muscle", help="Path to the Muscle executable", default="./muscle3.8.31_i86linux32")
     
     args = parser.parse_args()
     

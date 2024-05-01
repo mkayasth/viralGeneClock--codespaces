@@ -58,7 +58,7 @@ def remove_whitespace(input_file, output_file):
         for sequence in sequences:
             new_file.write(sequence + '\n')
             
-def remove_whitespace_and_run_muscle(input_file, output_directory, muscle_executable='muscle'):
+def remove_whitespace_and_run_muscle(input_file, output_directory, muscle_executable='./muscle3.8.31_i86linux32'):
     """
     Cleans input file, runs MUSCLE, and then cleans the MUSCLE output for further processing.
     """

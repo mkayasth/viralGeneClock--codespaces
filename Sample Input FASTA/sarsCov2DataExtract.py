@@ -1,7 +1,7 @@
 from Bio import Entrez, SeqIO
 import requests
 
-# replace with YOUR email id.
+# replace with YOUR email id. This here is mine:
 Entrez.email = "mkayasth@ramapo.edu"
 
 # mapping accession numbers to strain names
@@ -15,15 +15,10 @@ accession_to_strain = {
     "OR829491": "CH.1.1",
     "PP250483": "BF.10",
     "PP316714": "JN.1",
-    "PP435534": "HV.1",
-    "OQ437945": "B.1.1.7",
-    "PP421053": "P.1",
-    "PP299611": "B.1.617.2",
-    "PP292591": "BE.1",
-    "OQ938406": "DN.2"
+    "PP435534": "HV.1"
 }
 
-output_file = "tool_input.fasta"
+output_file = "sample_input.fasta"
 
 with open(output_file, 'w') as outfile:
     for accession, strain_name in accession_to_strain.items():

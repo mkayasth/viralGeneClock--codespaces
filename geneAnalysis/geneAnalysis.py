@@ -8,7 +8,7 @@ import sys
 
 # check if a reference genome is provided as a command-line argument.
 if len(sys.argv) < 2:
-    print("Usage: python3.11 geneAnalysis.py <reference_genome>")
+    print("Usage: python3 geneAnalysis.py <reference_genome>")
     sys.exit(1)
 
 # get the reference genome from the command-line argument.
@@ -27,7 +27,7 @@ average_mutation_rate_file = 'avg_mutation_rate_final/average_mutation_rates.txt
 
 # function to run a Python script with additional arguments, if needed.
 def run_script(script_path, *args):
-    subprocess.run(['python3.11', script_path, *args], check=True)
+    subprocess.run(['python3', script_path, *args], check=True)
 
 # Calculate the average mutation rate (for a protein ~~ by comparing all with reference strain).
 def calculate_average_mutation_rate(csv_file): # avg of all strains compared to the reference genome from mutation_rates.csv.

@@ -81,13 +81,13 @@ with open(mutation_rate_csv, mode='r', encoding='utf-8') as file:
         strain_name = first_row[0]
         protein_name = strain_name.split('|')[1].split(',')[0] if '|' in strain_name else strain_name
 
-# Append the average mutation rate to the text file
+# Appending the average mutation rate to the text file.
 append_average_mutation_rate_to_file(average_mutation_rate_file, protein_name, average_mutation_rate)
 
-# Clean the average mutation rates text file
+# Cleaning the average mutation rates text file.
 clean_up_mutation_rates_txt(average_mutation_rate_file)
 
-# After processing and calculations are done, delete the intermediate files.
+# once processing and calculations are done, deleting the intermediate files.
 os.remove('geneAnalysis-output/genetic_distances.csv')
 os.remove('geneAnalysis-output/branch_length.csv')
 os.remove('geneAnalysis-output/mutation_rates.csv')

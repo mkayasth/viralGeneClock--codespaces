@@ -42,4 +42,6 @@ Alternatively, you can use the command line interface with main.py (app.py calls
  ```shell
 python3 main.py <input_fasta_file> <reference strain>
 ```
-The <input_fasta_file> comprises the complete set of whole genome sequences (WGS) for the strains you intend to analyze. Each strain's FASTA header should be the name of the strain.
+The <input_fasta_file> comprises the complete set of whole genome sequences (WGS) for the strains you intend to analyze. 
+
+<b>Each strain's FASTA header should be the name of the strain. </b>

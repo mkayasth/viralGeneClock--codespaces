@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>References - ViralGeneClock</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: whitesmoke;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            margin: 10;
+        }
+        h1 {
+            color: black;
+            margin: 20px;
+            text-align: center;
+        }
+        .references {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+            max-width: 800px;
+            margin: auto;
+        }
+        li {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        nav {
+            background-color: black;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 8px 20px;
+            text-decoration: none;
+        }
+        nav a:hover, nav a.logo:hover {
+            background-color: darkgreen;
+            color: black;
+        }
+        nav a.logo {
+            padding: 0;
+        }
+        nav img {
+            display: block;
+            height: 25px;
+            padding: 4px 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo"><img src="{{ url_for('static', filename='logo.png') }}"></a>
+        <a href="/about">About</a>
+        <a href="/references">References</a>
+    </nav>
+
+    <h1>References: </h1>
+    <div class="references">
+        <ul>
+           
+            <li>Saitou, N., & Nei, M. (1987). The neighbor-joining method: a new method for reconstructing phylogenetic trees. <em>Molecular Biology and Evolution, 4(4),</em> 406–425. <a href="https://doi.org/10.1093/oxfordjournals.molbev.a040454">https://doi.org/10.1093/oxfordjournals.molbev.a040454</a></li>
+            <li>Kuhner, M. K., & Felsenstein, J. (1994). A simulation comparison of phylogeny algorithms under equal and unequal evolutionary rates. <em>Molecular Biology and Evolution, 11(3),</em> 459–468. <a href="https://doi.org/10.1093/oxfordjournals.molbev.a040126">https://doi.org/10.1093/oxfordjournals.molbev.a040126</a></li>
+            <li>Seemann, T. (2014). Prokka: rapid prokaryotic genome annotation. <em>Bioinformatics (Oxford, England), 30(14),</em> 2068–2069. <a href="https://doi.org/10.1093/bioinformatics/btu153">https://doi.org/10.1093/bioinformatics/btu153</a></li>
+            <li>Hyatt, D., et al. (2010). Prodigal: prokaryotic gene recognition and translation initiation site identification. <em>BMC Bioinformatics, 11(1).</em> <a href="https://doi.org/10.1186/1471-2105-11-119">https://doi.org/10.1186/1471-2105-11-119</a></li>
+            <li>Edgar, R. C. (2004). MUSCLE: multiple sequence alignment with high accuracy and high throughput. <em>Nucleic Acids Research, 32(5),</em> 1792–1797. <a href="https://doi.org/10.1093/nar/gkh340">https://doi.org/10.1093/nar/gkh340</a></li>
+            <li>Cock, P. J. A., et al. (2009). Biopython: freely available Python tools for computational molecular biology and bioinformatics. <em>Bioinformatics (Oxford, England), 25(11),</em> 1422–1423. <a href="https://doi.org/10.1093/bioinformatics/btp163">https://doi.org/10.1093/bioinformatics/btp163</a></li>
+            <li>Flask documentation. <a href="https://readthedocs.org/projects/flask/">https://readthedocs.org/projects/flask/</a>. Retrieved April 6, 2024.</li>
+            <li>Flask-mail documentation. <a href="https://pythonhosted.org/Flask-Mail/">https://pythonhosted.org/Flask-Mail/</a>. Retrieved May 1, 2024.</li>
+            <li>AJAX introduction. <a href="https://www.w3schools.com/js/js_ajax_intro.asp">https://www.w3schools.com/js/js_ajax_intro.asp</a>. Retrieved May 1, 2024.</li>
+            <li>Neighbor joining project. <a href="https://www.github.com/anicksaha/neighbor_joining">https://www.github.com/anicksaha/neighbor_joining</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>

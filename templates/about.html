@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About ViralGeneClock</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: whitesmoke;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            margin: 10;
+        }
+        h1, h2 {
+            color: black;
+            margin: 10px 0;
+        }
+        .content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+            max-width: 700px;
+            margin: 20px auto;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+        nav {
+            background-color: black;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 8px 20px;
+            text-decoration: none;
+        }
+        nav a:hover, nav a.logo:hover {
+            background-color: darkgreen;
+            color: black;
+        }
+        nav a.logo {
+            padding: 0;
+        }
+        nav img {
+            display: block;
+            height: 25px;
+            padding: 4px 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo"><img src="{{ url_for('static', filename='logo.png') }}"></a>
+        <a href="/about">About</a>
+        <a href="/references">References</a>
+    </nav>
+
+    <div class="content">
+        <h1>About <i> ViralGeneClock </i> </h1>
+
+        <p>ViralGeneClock is a Linux-based web application developed, where the users can deposit the whole genome sequence (WGS) of different viral strains to study their evolutionary relationships and mutation rates.</p>
+
+        <h2>Methodology</h2>
+
+        <p>The application uses the Neighbor-joining (NJ) algorithm for phylogenetic analyses to assess genetic distances and mutation rates. Despite newer algorithms with superior accuracy such as Maximum Likelihood and Maximum Parsimony, NJ remains the least computationally expensive algorithm among them. This makes NJ appropriate for analyzing large data sets in a local device. Based on the predicted genetic distance of each strain with the reference strain for a gene, the relative mutation rate can be estimated by dividing the genetic distance by the branch length of the strain to the reference strain. While this estimate will not provide an absolute mutation rate for the gene, the ratio of mutation rates estimated for different genes can give insight into their relative mutation rates.</p>
+
+        <h2>Tools and Materials</h2>
+
+        <p>ViralGeneClock leverages Prokka, a Linux-based rapid prokaryotic genome annotation tool, for viral annotation. MUSCLE (Multiple Sequence Comparison by Log-Expectation) is employed for progressive sequence alignment of the viral strains. The command line interface of ViralGeneClock has been wrapped with Flask, a lightweight Python web application framework, to provide this user-friendly web application interface! Additionally, Flask-Mail, an extension of the Flask framework, automatically emails users with results once the phylogenetic analysis is complete.</p>
+
+<h2> Tool Guide </h2>
+
+<p> Enter the FASTA sequence of different strains of a virus for ViralGeneClock to process. The FASTA header of each strain should be the NAME of the strain. Additionally, provide the reference strain and your email address. Once the output has been created, they will be emailed to the provided email address. <br>
+
+Start playing around with the sample FASTA files from <a href = "https://github.com/mkayasth/viralGeneClock--codespaces/tree/main/Sample%20Input%20FASTA">our Github repository</a> here! </p>
+    </div>
+
+</body>
+</html>

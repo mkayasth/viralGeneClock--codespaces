@@ -75,6 +75,14 @@ def run_command(fasta_sequence, reference_genome, email_address, task_id):
 def home():
     return render_template('index.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/references')
+def references():
+    return render_template('references.html')
+
 @app.route('/run', methods=['POST'])
 def run_script():
     fasta_sequence = request.form['fasta_sequence']

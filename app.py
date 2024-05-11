@@ -16,7 +16,7 @@ app.config["MAIL_USERNAME"] = "viralgeneclock1@fastmail.com"
 app.config["MAIL_PASSWORD"] = "8wyxcy6vu6n6egyb" 
 app.config["MAIL_USE_TLS"] = False
 app.config["MAIL_USE_SSL"] = True
-app.config["MAIL_DEFAULT_SENDER"] = "viralgeneclock@fastmail.com"
+app.config["MAIL_DEFAULT_SENDER"] = "viralgeneclock1@fastmail.com"
 
 mail = Mail(app)
 

@@ -12,8 +12,8 @@ app = Flask(__name__)
 # Flask-Mail Configuration using fastmail's smtp server.
 app.config["MAIL_SERVER"] = "smtp.fastmail.com"
 app.config["MAIL_PORT"] = 465
-app.config["MAIL_USERNAME"] = "viralgeneclock@fastmail.com"
-app.config["MAIL_PASSWORD"] = "mlc3s3x3uucdduu6" 
+app.config["MAIL_USERNAME"] = "viralgeneclock1@fastmail.com"
+app.config["MAIL_PASSWORD"] = "8wyxcy6vu6n6egyb" 
 app.config["MAIL_USE_TLS"] = False
 app.config["MAIL_USE_SSL"] = True
 app.config["MAIL_DEFAULT_SENDER"] = "viralgeneclock@fastmail.com"
